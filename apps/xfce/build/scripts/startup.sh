@@ -13,4 +13,4 @@ done
 gow_log "[start] Starting XFCE"
 
 source /opt/gow/launch-comp.sh
-launcher
+launcher kodi
