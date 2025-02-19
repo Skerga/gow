@@ -2,6 +2,17 @@
 
 gow_log "[start-create-dirs] Begin"
 
+# migrade from older image version
+if [ -d "${HOME}/.kodi" ]
+then
+    if [ ! -d "${HOME}/.var/app/tv.kodi.Kodi" ]
+    then
+        gow_log "[start-create-dirs] Migrate settings."
+        mkdir -p "${HOME}/.var/app/tv.kodi.Kodi/"
+        mv "${HOME}/.kodi" "${HOME}/.var/app/tv.kodi.Kodi/data"
+    fi
+fi
+
 # configure the controller.
 if [ ! -d "${HOME}/.var/app/tv.kodi.Kodi/data/userdata/addon_data/peripheral.joystick/resources/buttonmaps/xml/linux" ]
 then
